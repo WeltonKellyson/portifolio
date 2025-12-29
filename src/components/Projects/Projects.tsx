@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import type { Project } from '../../types';
 
@@ -97,37 +97,77 @@ export const Projects = () => {
 
   // Estado para controlar a página atual
   const [currentPage, setCurrentPage] = useState(0);
-  const PROJECTS_PER_PAGE = 3;
+  const [projectsPerPage, setProjectsPerPage] = useState(3);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const updateProjectsPerPage = () => {
+      const isMobile = window.innerWidth < 768;
+      const nextPerPage = isMobile ? 1 : 3;
+      setProjectsPerPage(nextPerPage);
+      setCurrentPage(0);
+    };
+
+    updateProjectsPerPage();
+    window.addEventListener('resize', updateProjectsPerPage);
+
+    return () => window.removeEventListener('resize', updateProjectsPerPage);
+  }, []);
 
   // Estado para controlar o modal de imagem
   const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
 
   // Calcula o número total de páginas
-  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   // Projetos da página atual
-  const startIndex = currentPage * PROJECTS_PER_PAGE;
-  const currentProjects = projects.slice(startIndex, startIndex + PROJECTS_PER_PAGE);
+  const startIndex = currentPage * projectsPerPage;
+  const currentProjects = projects.slice(startIndex, startIndex + projectsPerPage);
 
   // Preenche com cards "Em breve" se necessário
-  const emptySlots = PROJECTS_PER_PAGE - currentProjects.length;
+  const emptySlots = projectsPerPage - currentProjects.length;
 
-  // Carrossel automático - avança a cada 5 segundos
+  // Auto carousel - advances every 5 seconds
   useEffect(() => {
+    if (!isAutoPlay) {
+      return;
+    }
+
     const interval = setInterval(() => {
       setCurrentPage((prev) => {
-        // Se chegou na última página, volta para a primeira
+        // If at last page, wrap to first
         if (prev === totalPages - 1) {
           return 0;
         }
-        // Senão, avança para a próxima
+        // Otherwise move forward
         return prev + 1;
       });
-    }, 5000); // 5 segundos
+    }, 5000); // 5 seconds
 
-    // Limpa o interval quando o componente desmontar
     return () => clearInterval(interval);
-  }, [totalPages]);
+  }, [totalPages, isAutoPlay]);
+
+  useEffect(() => {
+    return () => {
+      if (resumeTimerRef.current) {
+        clearTimeout(resumeTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handlePageSelect = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
+    setIsAutoPlay(false);
+
+    if (resumeTimerRef.current) {
+      clearTimeout(resumeTimerRef.current);
+    }
+
+    resumeTimerRef.current = setTimeout(() => {
+      setIsAutoPlay(true);
+    }, 10000);
+  };
 
   return (
     <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-900/50">
@@ -291,7 +331,7 @@ export const Projects = () => {
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentPage(index)}
+                onClick={() => handlePageSelect(index)}
                 className={`transition-all duration-300 rounded-full ${
                   currentPage === index
                     ? 'w-3 h-3 bg-primary-600'
@@ -349,5 +389,13 @@ export const Projects = () => {
     </section>
   );
 };
+
+
+
+
+
+
+
+
 
 
