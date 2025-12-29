@@ -100,3 +100,116 @@
     transform: scale(1);
   }
 }
+
+@layer utilities {
+  .hero-circuit {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.25));
+  }
+
+  .hero-circuit svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circuit-path {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 12 14;
+    animation: circuit-flow 6s linear infinite;
+  }
+
+  .circuit-node {
+    fill: #38bdf8;
+    opacity: 0.7;
+  }
+
+  .circuit-node.pulse {
+    animation: circuit-pulse 2.6s ease-in-out infinite;
+  }
+
+  @keyframes circuit-flow {
+    from {
+      stroke-dashoffset: 0;
+      opacity: 0.45;
+    }
+    50% {
+      opacity: 0.9;
+    }
+    to {
+      stroke-dashoffset: -160;
+      opacity: 0.45;
+    }
+  }
+
+  @keyframes circuit-pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.6);
+    }
+  }
+}
+
+@layer utilities {
+  .hero-title-glow {
+    position: absolute;
+    inset: 2.5rem 0 auto;
+    height: 12rem;
+    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.35), rgba(17, 24, 39, 0));
+    filter: blur(40px);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .hero-circuit {
+    opacity: 0.45;
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.25));
+  }
+
+  .hero-circuit svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circuit-path {
+    fill: none;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 12 14;
+    animation: circuit-flow 6s linear infinite;
+  }
+
+  .circuit-path.thin {
+    stroke-width: 1.6;
+    opacity: 0.65;
+  }
+
+  .circuit-path.thick {
+    stroke-width: 3.2;
+  }
+
+  .circuit-static path {
+    fill: none;
+    stroke: rgba(56, 189, 248, 0.35);
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-dasharray: 6 10;
+  }
+
+  .circuit-node {
+    fill: #38bdf8;
+    opacity: 0.75;
+  }
+
+  .circuit-node.pulse {
+    animation: circuit-pulse 2.6s ease-in-out infinite;
+  }
+}
