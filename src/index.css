@@ -102,62 +102,6 @@
 }
 
 @layer utilities {
-  .hero-circuit {
-    opacity: 0.35;
-    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.25));
-  }
-
-  .hero-circuit svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .circuit-path {
-    fill: none;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 12 14;
-    animation: circuit-flow 6s linear infinite;
-  }
-
-  .circuit-node {
-    fill: #38bdf8;
-    opacity: 0.7;
-  }
-
-  .circuit-node.pulse {
-    animation: circuit-pulse 2.6s ease-in-out infinite;
-  }
-
-  @keyframes circuit-flow {
-    from {
-      stroke-dashoffset: 0;
-      opacity: 0.45;
-    }
-    50% {
-      opacity: 0.9;
-    }
-    to {
-      stroke-dashoffset: -160;
-      opacity: 0.45;
-    }
-  }
-
-  @keyframes circuit-pulse {
-    0%,
-    100% {
-      opacity: 0.4;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.6);
-    }
-  }
-}
-
-@layer utilities {
   .hero-title-glow {
     position: absolute;
     inset: 2.5rem 0 auto;
@@ -169,8 +113,8 @@
   }
 
   .hero-circuit {
-    opacity: 0.45;
-    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.25));
+    opacity: 0.5;
+    filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.28));
   }
 
   .hero-circuit svg {
@@ -180,36 +124,87 @@
 
   .circuit-path {
     fill: none;
-    stroke-width: 2.4;
+    stroke-width: 2.2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 12 14;
-    animation: circuit-flow 6s linear infinite;
+    stroke-dasharray: 6 10 2 14;
+    animation: circuit-flow 7.5s ease-in-out infinite;
+  }
+
+  .circuit-path.reverse {
+    animation-direction: reverse;
   }
 
   .circuit-path.thin {
-    stroke-width: 1.6;
-    opacity: 0.65;
+    stroke-width: 1.4;
+    opacity: 0.6;
+    animation-duration: 9s;
   }
 
   .circuit-path.thick {
     stroke-width: 3.2;
+    opacity: 0.85;
+    animation-duration: 6.5s;
+  }
+
+  .circuit-static {
+    opacity: 0.35;
+    animation: circuit-static-glow 10s ease-in-out infinite;
   }
 
   .circuit-static path {
     fill: none;
-    stroke: rgba(56, 189, 248, 0.35);
-    stroke-width: 1.2;
+    stroke: rgba(56, 189, 248, 0.28);
+    stroke-width: 1.1;
     stroke-linecap: round;
-    stroke-dasharray: 6 10;
+    stroke-dasharray: 4 12;
   }
 
   .circuit-node {
     fill: #38bdf8;
-    opacity: 0.75;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.55));
+    transform-box: fill-box;
+    transform-origin: center;
   }
 
   .circuit-node.pulse {
-    animation: circuit-pulse 2.6s ease-in-out infinite;
+    animation: circuit-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes circuit-flow {
+    0% {
+      stroke-dashoffset: 0;
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 0.95;
+    }
+    100% {
+      stroke-dashoffset: -180;
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes circuit-static-glow {
+    0%,
+    100% {
+      opacity: 0.22;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes circuit-pulse {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.8);
+    }
   }
 }

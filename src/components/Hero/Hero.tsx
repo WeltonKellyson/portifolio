@@ -20,7 +20,7 @@ export const Hero = () => {
           {/* Greeting */}
           <div className="mb-6 animate-fade-in-down">
             <span className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400 rounded-full text-sm font-medium hover:scale-110 transition-transform duration-300 animate-float">
-              {'Ol\u00E1, eu sou'}
+              {'Olá, eu sou'}
             </span>
           </div>
 
@@ -114,13 +114,13 @@ export const Hero = () => {
                 stroke="url(#circuitGradient)"
               />
               <path
-                className="circuit-path"
+                className="circuit-path reverse"
                 style={{ animationDelay: '2.2s' }}
                 d="M -60 70 H 140 L 210 140 H 340 L 420 90 H 600 L 760 150 H 1260"
                 stroke="url(#circuitGradient)"
               />
               <path
-                className="circuit-path thin"
+                className="circuit-path thin reverse"
                 style={{ animationDelay: '1.5s' }}
                 d="M -80 180 H 120 L 200 120 H 340 L 430 190 H 620 L 760 130 H 1260"
                 stroke="url(#circuitGradient)"
@@ -132,13 +132,13 @@ export const Hero = () => {
                 stroke="url(#circuitGradient)"
               />
               <path
-                className="circuit-path thin"
+                className="circuit-path thin reverse"
                 style={{ animationDelay: '2.8s' }}
                 d="M -60 280 H 200 L 260 220 H 420 L 520 300 H 720 L 860 240 H 1260"
                 stroke="url(#circuitGradient)"
               />
               <path
-                className="circuit-path thick"
+                className="circuit-path thick reverse"
                 style={{ animationDelay: '2.2s' }}
                 d="M -100 380 H 160 L 260 440 H 440 L 520 360 H 740 L 880 420 H 1260"
                 stroke="url(#circuitGradient)"
@@ -150,7 +150,7 @@ export const Hero = () => {
                 stroke="url(#circuitGradient)"
               />
               <path
-                className="circuit-path"
+                className="circuit-path reverse"
                 style={{ animationDelay: '1.8s' }}
                 d="M -60 480 H 180 L 260 420 H 420 L 520 500 H 700 L 860 440 H 1260"
                 stroke="url(#circuitGradient)"
@@ -164,19 +164,19 @@ export const Hero = () => {
             </g>
 
             <g>
-              <circle className="circuit-node pulse" cx="200" cy="90" r="3" />
+              <circle className="circuit-node pulse" cx="200" cy="90" r="3" style={{ animationDelay: '0s' }} />
               <circle className="circuit-node" cx="440" cy="120" r="3" />
-              <circle className="circuit-node pulse" cx="210" cy="140" r="3" />
+              <circle className="circuit-node pulse" cx="210" cy="140" r="3" style={{ animationDelay: '0.6s' }} />
               <circle className="circuit-node" cx="420" cy="90" r="3" />
-              <circle className="circuit-node pulse" cx="520" cy="270" r="3" />
+              <circle className="circuit-node pulse" cx="520" cy="270" r="3" style={{ animationDelay: '1.2s' }} />
               <circle className="circuit-node" cx="260" cy="200" r="3" />
-              <circle className="circuit-node pulse" cx="520" cy="300" r="3" />
+              <circle className="circuit-node pulse" cx="520" cy="300" r="3" style={{ animationDelay: '1.8s' }} />
               <circle className="circuit-node" cx="260" cy="220" r="3" />
-              <circle className="circuit-node pulse" cx="520" cy="360" r="3" />
+              <circle className="circuit-node pulse" cx="520" cy="360" r="3" style={{ animationDelay: '2.4s' }} />
               <circle className="circuit-node" cx="260" cy="440" r="3" />
-              <circle className="circuit-node pulse" cx="700" cy="460" r="3" />
+              <circle className="circuit-node pulse" cx="700" cy="460" r="3" style={{ animationDelay: '0.9s' }} />
               <circle className="circuit-node" cx="240" cy="400" r="3" />
-              <circle className="circuit-node pulse" cx="780" cy="370" r="3" />
+              <circle className="circuit-node pulse" cx="780" cy="370" r="3" style={{ animationDelay: '1.5s' }} />
               <circle className="circuit-node" cx="820" cy="420" r="3" />
             </g>
           </svg>
