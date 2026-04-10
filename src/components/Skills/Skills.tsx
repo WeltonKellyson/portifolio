@@ -86,61 +86,35 @@ export const Skills = () => {
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   {/* Category Header */}
-                  <div className="mb-6">
+                  <div className="mb-6 text-center">
                     <div
                       className={`inline-block px-4 py-2 rounded-lg bg-gradient-to-r ${categoryColors[category]} text-white text-sm font-semibold mb-2`}
                     >
                       {categoryLabels[category]}
                     </div>
                     <div
-                      className={`h-1 w-12 bg-gradient-to-r ${categoryColors[category]} rounded-full`}
+                      className={`h-1 w-12 bg-gradient-to-r ${categoryColors[category]} rounded-full mx-auto`}
                     ></div>
                   </div>
 
                   {/* Skills List */}
-                  <ul className="space-y-3">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     {visibleSkills.map((skill) => (
-                      <li
+                      <span
                         key={skill.name}
-                        className="flex items-center text-gray-700 dark:text-gray-300"
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full font-medium"
                       >
-                        <svg
-                          className="w-5 h-5 text-primary-600 dark:text-primary-400 mr-3 flex-shrink-0"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                        <span className="font-medium">{skill.name}</span>
-                      </li>
+                        {skill.name}
+                      </span>
                     ))}
 
                     {/* Indicador de mais skills */}
                     {remainingCount > 0 && (
-                      <li className="flex items-center text-gray-500 dark:text-gray-500 italic pt-2">
-                        <svg
-                          className="w-5 h-5 text-primary-600 dark:text-primary-400 mr-3 flex-shrink-0"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 4v16m8-8H4"
-                          />
-                        </svg>
-                        <span className="text-sm">+{remainingCount} mais</span>
-                      </li>
+                      <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm rounded-full font-medium italic">
+                        +{remainingCount} mais
+                      </span>
                     )}
-                  </ul>
+                  </div>
                 </div>
               );
             })}

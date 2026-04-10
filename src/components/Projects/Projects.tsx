@@ -12,7 +12,7 @@ export const projects: Project[] = [
     description:
       'Atuei no front-end construindo dashboards e telas de análise financeira, com componentes reutilizáveis e integração com APIs.',
     image: '/projects/datacore.png',
-    tags: ['Python', 'FastAPI', 'React', 'PostgreSQL'],
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI', 'PostgreSQL'],
     featured: true,
   },
   {
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description:
       'Desenvolvimento do front-end da plataforma de chamados, com foco em UX, priorização visual e acompanhamento em tempo real.',
     image: '/projects/chamados.png',
-    tags: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'MongoDB'],
   },
   {
     id: '3',
@@ -29,19 +29,36 @@ export const projects: Project[] = [
     description:
       'Criação de interfaces para controle patrimonial, filtros avançados, histórico de movimentações e relatórios visuais.',
     image: '/projects/control.png',
-    tags: ['React', 'FastAPI', 'PostgreSQL', 'Python'],
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Python'],
   },
   {
     id: '4',
-    title: 'HealthScore',
+    title: 'GranaIA',
     description:
-      'Atuação no front-end da plataforma de treinamento com IA, entregando uma UI responsiva e integração com dados de desempenho.',
-    image: '/projects/healthscore.png',
-    tags: ['Python', 'FastAPI', 'React', 'OpenAI'],
-    featured: true,
+      'Front-end do assistente financeiro via WhatsApp, com foco em experiência do usuário e insights visuais.',
+    image: '/projects/granaia.png',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Python', 'OpenAI', 'FastAPI', 'PostgreSQL'],
   },
   {
     id: '5',
+    title: 'GrowthHS',
+    description:
+      'Desenvolvimento do front-end do CRM, com gestão de clientes, pipeline de vendas e acompanhamento de métricas de crescimento.',
+    image: '/projects/growthhs.png',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
+    featured: true,
+  },
+  {
+    id: '6',
+    title: 'Landing Page',
+    description:
+      'Landing page para clínica de fisioterapia, com foco em conversão, apresentação dos serviços e design clean e profissional.',
+    image: '/projects/landimirella.png',
+    tags: ['React', 'TypeScript', 'Tailwind CSS'],
+    featured: true,
+  },
+  {
+    id: '7',
     title: 'Automações n8n & Python',
     description:
       'Participação no front-end de fluxos e painéis de automação, conectando sistemas e trazendo clareza aos processos.',
@@ -49,15 +66,32 @@ export const projects: Project[] = [
     tags: ['Python', 'n8n', 'API Integration', 'Automation'],
   },
   {
-    id: '6',
-    title: 'Comprai',
+    id: '8',
+    title: 'Suporte WhatsApp IA',
     description:
-      'Front-end para gestão de promoções e monitoramento de preços, com integrações e visualizações para tomada de decisão.',
-    image: '/projects/comprai.png',
-    tags: ['Python', 'Selenium', 'FastAPI', 'PostgreSQL'],
+      'Criação de telas e painéis para atendimento automatizado, histórico de conversas e monitoramento de métricas.',
+    image: '/projects/suporte-whatsapp.png',
+    tags: ['Python', 'FastAPI', 'OpenAI', 'WhatsApp API'],
+    featured: true,
   },
   {
-    id: '7',
+    id: '9',
+    title: 'Comprai',
+    description:
+      'Automação para comunidade de promoções que consome a API da Shopee, filtra produtos por categoria e envia as ofertas automaticamente para grupos específicos.',
+    image: '/projects/comprai.png',
+    tags: ['n8n', 'JavaScript', 'Shopee API', 'WhatsApp API'],
+  },
+  {
+    id: '10',
+    title: 'HealthScore',
+    description:
+      'Atuação no front-end da plataforma de treinamento com IA, entregando uma UI responsiva e integração com dados de desempenho.',
+    image: '/projects/healthscore.png',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI', 'OpenAI'],
+  },
+  {
+    id: '11',
     title: 'EBSoftware',
     description:
       'Desenvolvimento da interface desktop para testes automatizados, priorizando usabilidade e fluxo de operação.',
@@ -65,28 +99,12 @@ export const projects: Project[] = [
     tags: ['Python', 'PyQt', 'Serial Communication', 'SQLite'],
   },
   {
-    id: '8',
+    id: '12',
     title: 'HealthApp',
     description:
       'Participação no design e implementação de telas mobile, com foco em usabilidade e integração Bluetooth.',
     image: '/projects/healthapp.png',
-    tags: ['React Native', 'TypeScript', 'Bluetooth', 'SQLite'],
-  },
-  {
-    id: '9',
-    title: 'Suporte WhatsApp IA',
-    description:
-      'Criação de telas e painéis para atendimento automatizado, histórico de conversas e monitoramento de métricas.',
-    image: '/projects/suporte-whatsapp.png',
-    tags: ['Python', 'FastAPI', 'OpenAI', 'WhatsApp API'],
-  },
-  {
-    id: '10',
-    title: 'GranaIA',
-    description:
-      'Front-end do assistente financeiro via WhatsApp, com foco em experiência do usuário e insights visuais.',
-    image: '/projects/granaia.png',
-    tags: ['Python', 'OpenAI', 'FastAPI', 'PostgreSQL'],
+    tags: ['Flutter', 'Dart', 'Bluetooth', 'SQLite'],
     featured: true,
   },
 ];
@@ -223,7 +241,7 @@ export const Projects = () => {
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
+                <div className="p-6 text-center">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {project.title}
                   </h3>
@@ -233,7 +251,7 @@ export const Projects = () => {
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-4 justify-center">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -245,7 +263,7 @@ export const Projects = () => {
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 justify-center">
                     {project.github && (
                       <a
                         href={project.github}
