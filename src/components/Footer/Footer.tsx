@@ -83,18 +83,22 @@
               {'Links R\u00E1pidos'}
             </h4>
             <ul className="space-y-2">
-              {['Home', 'Sobre', 'Skills', 'Projetos', 'Contato'].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { label: 'Home', href: '#home' },
+                { label: 'Sobre', href: '#about' },
+                { label: 'Skills', href: '#skills' },
+                { label: 'Projetos', href: '#projects' },
+                { label: 'Contato', href: '#contact' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
