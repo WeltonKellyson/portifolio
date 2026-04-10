@@ -1,4 +1,5 @@
 ﻿import { useTypingEffect } from '../../hooks/useTypingEffect';
+import { ParticleNetwork } from './ParticleNetwork';
 
 export const Hero = () => {
   const { displayText, showCursor } = useTypingEffect({
@@ -94,98 +95,12 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="hero-circuit absolute inset-0" aria-hidden="true">
-          <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.35" />
-                <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#34d399" stopOpacity="0.35" />
-              </linearGradient>
-            </defs>
+      {/* Background decoration — Three.js */}
+      <ParticleNetwork />
 
-            <g className="circuit-glow">
-              <path
-                className="circuit-path thick"
-                style={{ animationDelay: '0s' }}
-                d="M -60 40 H 120 L 200 90 H 320 L 400 40 H 560 L 720 110 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-              <path
-                className="circuit-path reverse"
-                style={{ animationDelay: '2.2s' }}
-                d="M -60 70 H 140 L 210 140 H 340 L 420 90 H 600 L 760 150 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-              <path
-                className="circuit-path thin reverse"
-                style={{ animationDelay: '1.5s' }}
-                d="M -80 180 H 120 L 200 120 H 340 L 430 190 H 620 L 760 130 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-              <path
-                className="circuit-path"
-                style={{ animationDelay: '0.8s' }}
-                d="M -40 250 H 200 L 260 200 H 420 L 520 270 H 720 L 860 230 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-              <path
-                className="circuit-path thin reverse"
-                style={{ animationDelay: '2.8s' }}
-                d="M -60 280 H 200 L 260 220 H 420 L 520 300 H 720 L 860 240 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-              <path
-                className="circuit-path thick reverse"
-                style={{ animationDelay: '2.2s' }}
-                d="M -100 380 H 160 L 260 440 H 440 L 520 360 H 740 L 880 420 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-              <path
-                className="circuit-path thin"
-                style={{ animationDelay: '1.1s' }}
-                d="M -60 450 H 160 L 240 400 H 420 L 520 460 H 700 L 820 420 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-              <path
-                className="circuit-path reverse"
-                style={{ animationDelay: '1.8s' }}
-                d="M -60 480 H 180 L 260 420 H 420 L 520 500 H 700 L 860 440 H 1260"
-                stroke="url(#circuitGradient)"
-              />
-            </g>
-
-            <g className="circuit-static">
-              <path d="M -120 140 H 180 L 260 210 H 420 L 520 180 H 760 L 920 210 H 1260" />
-              <path d="M -80 320 H 220 L 300 360 H 520 L 620 320 H 900 L 1020 350 H 1260" />
-              <path d="M -120 520 H 140 L 240 480 H 420 L 540 520 H 820 L 940 480 H 1260" />
-            </g>
-
-            <g>
-              <circle className="circuit-node pulse" cx="200" cy="90" r="3" style={{ animationDelay: '0s' }} />
-              <circle className="circuit-node" cx="440" cy="120" r="3" />
-              <circle className="circuit-node pulse" cx="210" cy="140" r="3" style={{ animationDelay: '0.6s' }} />
-              <circle className="circuit-node" cx="420" cy="90" r="3" />
-              <circle className="circuit-node pulse" cx="520" cy="270" r="3" style={{ animationDelay: '1.2s' }} />
-              <circle className="circuit-node" cx="260" cy="200" r="3" />
-              <circle className="circuit-node pulse" cx="520" cy="300" r="3" style={{ animationDelay: '1.8s' }} />
-              <circle className="circuit-node" cx="260" cy="220" r="3" />
-              <circle className="circuit-node pulse" cx="520" cy="360" r="3" style={{ animationDelay: '2.4s' }} />
-              <circle className="circuit-node" cx="260" cy="440" r="3" />
-              <circle className="circuit-node pulse" cx="700" cy="460" r="3" style={{ animationDelay: '0.9s' }} />
-              <circle className="circuit-node" cx="240" cy="400" r="3" />
-              <circle className="circuit-node pulse" cx="780" cy="370" r="3" style={{ animationDelay: '1.5s' }} />
-              <circle className="circuit-node" cx="820" cy="420" r="3" />
-            </g>
-          </svg>
-        </div>
-
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-200 dark:bg-primary-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-fuchsia-200 dark:bg-fuchsia-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-violet-200 dark:bg-violet-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
-      </div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-200 dark:bg-primary-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob pointer-events-none"></div>
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-fuchsia-200 dark:bg-fuchsia-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-2000 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-violet-200 dark:bg-violet-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-blob animation-delay-4000 pointer-events-none"></div>
     </section>
   );
 };
