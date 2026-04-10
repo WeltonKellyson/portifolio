@@ -7,7 +7,7 @@
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Brand + Social */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               Welton Kellyson
             </h3>
@@ -23,7 +23,7 @@
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Redes Sociais
               </h4>
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center md:justify-start">
                 <a
                   href="https://github.com/WeltonKellyson"
                   target="_blank"
@@ -78,7 +78,7 @@
           </div>
 
           {/* Quick Links */}
-          <div className="md:justify-self-end">
+          <div className="md:justify-self-end text-center md:text-left">
             <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
               {'Links R\u00E1pidos'}
             </h4>
